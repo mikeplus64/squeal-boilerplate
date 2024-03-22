@@ -1,0 +1,30 @@
+cabal-version:      3.0
+name:               squeal-boilerplate
+version:            0.9.1.3
+synopsis:           Reasonable defaults for squeal-postgresql
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Mike Ledger
+maintainer:         mike@quasimal.com
+category:           Database
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common shared
+    default-language: GHC2021
+    build-depends:    base ^>=4.18.2.0,
+                      squeal-postgresql ^>=0.9,
+                      lens
+    ghc-options:      -Wall
+
+library
+    import:           shared
+    exposed-modules:  Squeal.PostgreSQL.Boilerplate
+    hs-source-dirs:   src
+
+-- test-suite squeal-boilerplate-test
+--     import:           shared
+--     type:             exitcode-stdio-1.0
+--     hs-source-dirs:   test
+--     main-is:          Main.hs
+--     build-depends: squeal-boilerplate
